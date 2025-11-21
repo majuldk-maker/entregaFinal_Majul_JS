@@ -55,7 +55,7 @@ function renderProductos() {
       <img src="${p.img}" alt="${p.titulo}">
       <h3>${p.titulo}</h3>
       <p>${p.descripcion}</p>
-      <p><strong>$${formatearMoneda(p.precio)}</strong></p>
+      <p><strong>$ ${formatearMoneda(p.precio)}</strong></p>
       <p>Stock: ${p.stock}</p>
       <div>
         <button data-id="${p.id}" class="btn-agregar-carrito">Agregar</button>
@@ -156,7 +156,7 @@ function renderCarritoItems() {
     row.innerHTML = `
       <div>
         <strong>${item.titulo}</strong>
-        <p>$${formatearMoneda(item.precio)} x ${item.cantidad}</p>
+        <p>$ ${formatearMoneda(item.precio)} x ${item.cantidad}</p>
       </div>
       <div>
         <input type="number" min="1" value="${item.cantidad}" data-id="${item.id}" class="cant-input" style="width:60px" />
@@ -250,7 +250,7 @@ btnCheckout.addEventListener('click', async () => {
 
   const confirmacion = await Swal.fire({
     title: 'Confirmar compra',
-    html: `<p>Total a pagar:  <strong>$${formatearMoneda(getTotalCarrito())}</strong></p>
+    html: `<p>Total a pagar:  <strong>$ ${formatearMoneda(getTotalCarrito())}</strong></p>
            <p>Nombre: ${formData.name}</p>
            <p>Email: ${formData.email}</p>`,
     showCancelButton: true,
